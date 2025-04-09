@@ -1,53 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq; // Necesario para .Zip y .OrderBy
+﻿using System.Collections;
 
-class Program
+
+Dictionary<string, int> dep = new()
 {
-    static void Main(string[] args)
-    {
-        // Definición e inicialización de los arreglos en paralelo y diccionario.
-        int[] poblacion = {
-            185013, 197139, 439906, 190863, 530586, 414543, 229866, 214317,
-            421050, 389047, 174744, 1546939, 391903, 593503, 271581, 135446, 182645
-        };
+    {"Boaco",185013},
+    {"Carazo",197139},
+    {"Chinandega",439906},
+    {"Chontales",190863},
+    {"Costa Caribe Norte",530586},
+    {"Costa Caribe Sur",414543},
+    {"Estelí",229866},
+    {"Granada",214317},
+    {"Jinotega",475630},
+    {"León",421050},
+    {"Madriz",174744},
+    {"Managua",1546939},
+    {"Masaya",391903},
+    {"Matagalpa",593503},
+    {"Nueva Segovia",271581},
+    {"Río San Juan",135446},
+    {"Rivas",182645}
+};
 
-        string[] departamento = {
-            "Boaco", "Carazo", "Chinandega", "Chontales", "Costa Caribe Norte",
-            "Costa Caribe Sur", "Estelí", "Granada", "Jinotega", "León", "Madriz",
-            "Managua", "Masaya", "Matagalpa", "Nueva Segovia", "Río San Juan", "Rivas"
-        };
+var orderDepResult = dep.OrderBy(d => d.Value);
+var menDep = dep.Select(d => d).Where(d => d.Value == dep.Values.ToArray().Min());
+Console.WriteLine("Departamento con menor Población:");
 
-        // Crear el diccionario
-        Dictionary<string, int> diccionario = departamento
-            .Zip(poblacion, (k, v) => new { k, v })
-            .ToDictionary(x => x.k, x => x.v);
+foreach (var order in menDep)
+    Console.WriteLine($"{order.Key,20} ==> {order.Value,10:N0}");
 
-        // Ordenando el diccionario de menor a mayor
-        var ordenado = diccionario.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+Console.WriteLine("Departamento con mayor Población:");
+foreach (var item in orderDepResult)
+    Console.WriteLine($"{item.Key,20} ==> {item.Value,10:N0}");
+int total = orderDepResult.ToDictionary(kvp => kvp.Key, kvp => kvp.Value).Values.ToArray().Sum();
 
-        // Fijando los nombres de los departamentos con menor y mayor población
-        string minDepKey = ordenado.First().Key;
-        string maxDepKey = ordenado.Last().Key;
+Console.WriteLine($"Población General:{total,17:N0}");
 
-        // Reasignación de los arreglos en paralelo
-        departamento = ordenado.Keys.ToArray();
-        poblacion = ordenado.Values.ToArray();
-
-        // Mostrar los arreglos ordenados de menor a mayor
-        Console.WriteLine("Departamentos ordenados por población:\n");
-        for (int i = 0; i < poblacion.Length; i++)
-        {
-            Console.WriteLine($"{departamento[i],-20} => {poblacion[i],10:N0}");
-        }
-
-        // Suma total de la población
-        int totalPoblacion = poblacion.Sum();
-
-        // Mostrar total, mayor y menor
-        Console.WriteLine($"\nPoblación General: {totalPoblacion:N0}");
-        Console.WriteLine($"Mayor población: {maxDepKey}");
-        Console.WriteLine($"Menor población: {minDepKey}");
-    }
-}
+var tresMayores = orderDepResult.TakeLast(3);
+Console.WriteLine($"Los tres departemento con mayor población son:");
+tresMayores = tresMayores.OrderByDescending(d => d.Value);
+foreach (var item in tresMayores)
+    Console.WriteLine($"{item.Key}");
 
