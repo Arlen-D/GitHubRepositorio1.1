@@ -38,8 +38,12 @@ class Program
         {
             Console.WriteLine($"{Departamento[i],-20} ==> {población[i].ToString("N0", ni)}");
         }
-        Console.WriteLine($"mayor población: {maxDepkey}");
-        Console.WriteLine($"menor población: {minDepkey}");
+
+        
+        Console.WriteLine($"Mayor Población: {maxDepkey}");
+        Console.WriteLine($"menor Población: {minDepkey}");
+        
+>>>>>>> versionSimple
         // suma de toda la población y nombre de mayor y menor.
         Console.WriteLine($"\nPoblación general: {población.Sum().ToString("N0", ni)}");
         Console.WriteLine($"Departamento con mayor población: {maxDepkey}");
@@ -47,7 +51,7 @@ class Program
        
        
 
-       
+        
     }
 }
 
