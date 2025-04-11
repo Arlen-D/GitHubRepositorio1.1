@@ -41,8 +41,8 @@ class Program
 
         // suma de toda la población y nombre de mayor y menor.
         Console.WriteLine($"\nPoblación general: {población.Sum().ToString("N0", ni)}");
-        Console.WriteLine($"Mayor población: {maxDepkey}");
-        Console.WriteLine($"Menor población: {minDepkey}");
+        Console.WriteLine($"Departamento con mayor población: {maxDepkey}");
+        Console.WriteLine($"Departamento con menor población: {minDepkey}");
     }
 }
 
