@@ -43,6 +43,9 @@ class Program
         Console.WriteLine($"\nPoblación general: {población.Sum().ToString("N0", ni)}");
         Console.WriteLine($"Departamento con mayor población: {maxDepkey}");
         Console.WriteLine($"Departamento con menor población: {minDepkey}");
+
+        Console.WriteLine($"Mayor Población: {maxDepkey}");
+        Console.WriteLine($"menor Población: {minDepkey}");
     }
 }
 
