@@ -39,7 +39,6 @@ class Program
             Console.WriteLine($"{Departamento[i],-20} ==> {población[i].ToString("N0", ni)}");
         }
 
-        
         Console.WriteLine($"Mayor Población: {maxDepkey}");
         Console.WriteLine($"menor Población: {minDepkey}");
         
