@@ -8,7 +8,7 @@ class Program
     static void Main()
     {
         // definición e inicialización de los arreglos en paralelo y diccionario.
-        int[] población = {185013,197119,439906,198063,530586,414543,229866,214317,475630,421050,174744,1546939,391093,593503,271581,135446,197198};
+        int[] población = {185013,197119,439906,198063,530586,414543,229866,214317,475630,421050,174744,1575819,391093,593503,271581,135446,197198}; // Cambio la población de Managua aquí
         string[] Departamento = {
             "Boaco", "Carazo", "Chinandega", "Chontales", "Costa Caribe Norte", 
             "Costa Caribe Sur", "Estelí", "Granada", "Jinotega", "León", 
@@ -41,8 +41,9 @@ class Program
 
         // suma de toda la población y nombre de mayor y menor.
         Console.WriteLine($"\nPoblación general: {población.Sum().ToString("N0", ni)}");
-        Console.WriteLine($"Mayor población: {maxDepkey}");
-        Console.WriteLine($"Menor población: {minDepkey}");
+        Console.WriteLine($"Departamento con mayor población: {maxDepkey}");
+        Console.WriteLine($"Departamento con menor población: {minDepkey}");
     }
 }
+
 
