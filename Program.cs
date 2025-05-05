@@ -34,7 +34,7 @@ class Program
          //Ordenando con LINQ OrdeBy el diccionario
          
         // suma de toda la población y nombre de mayor y menor.
-        Console.WriteLine($"\nPoblación general: {diccionario.Values.Sum().ToString("N0", ni)}");
+        Console.WriteLine($"Población General: {diccionario.Values.Sum().ToString("N0", ni)}");
         Console.WriteLine($"Departamento con mayor población: {maxDep.Key}");
         Console.WriteLine($"Departamento con menor población: {minDep.Key}");
     }
